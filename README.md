@@ -59,7 +59,7 @@ For those who want to run this locally, follow the setup guide below.
 
 ### Install Git and Python
 
-Follow the instructions [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) to install Git on your computer. Also follow this [guide](https://realpython.com/installing-python/) to install Python **VERSION 3.9** if you haven't already. Using other versions of Python may result in dependency conflicts.
+Follow the instructions [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) to install Git on your computer. Also follow this [guide](https://www.anaconda.com/download/success/) to install Anaconda if you haven't already. Use the Create_VENV.bat to install a VENV of Python 3.9 and all required packages.
 
 ### Install ffmpeg
 
@@ -76,8 +76,10 @@ Open a command line window and run these commands to clone this entire repositor
 ```
 git clone https://github.com/SociallyIneptWeeb/AICoverGen
 cd AICoverGen
-pip install -r requirements.txt
 ```
+
+## Windows Users
+For Windows compatibility, a prebuilt wheel for fairseq is provided in the `prebuilt_whl` folder. This helps avoid common build issues on Windows systems. All you need to do is follow the above steps to install Python 3.9 and all other requirements.
 
 ### Download required models
 
@@ -90,7 +92,7 @@ python src/download_models.py
 
 ## Usage with WebUI
 
-To run the AICoverGen WebUI, run the following command.
+To run the AICoverGen WebUI, run the command below, or use run.bat
 
 ```
 python src/webui.py
