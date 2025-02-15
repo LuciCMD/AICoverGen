@@ -69,6 +69,10 @@ Follow the instructions [here](https://www.hostinger.com/tutorials/how-to-instal
 
 Follow the instructions [here](https://www.tutorialexample.com/a-step-guide-to-install-sox-sound-exchange-on-windows-10-python-tutorial/) to install sox and add it to your Windows path environment.
 
+### Install cuDNN
+
+Download cuDNN 8.9.7 for CUDA 11.x [here](https://developer.nvidia.com/rdp/cudnn-archive), create the required folders or place it in existing folders here "C:\Program Files\NVIDIA\CUDNN\8.9.7.29" and add it to user or system path environment variables as "C:\Program Files\NVIDIA\CUDNN\8.9.7.29\bin" (no quotes)
+
 ### Clone AICoverGen repository
 
 Open a command line window and run these commands to clone this entire repository and install the additional dependencies required.
@@ -88,7 +92,6 @@ Run the following command to download the required MDXNET vocal separation model
 ```
 python src/download_models.py
 ```
-
 
 ## Usage with WebUI
 
