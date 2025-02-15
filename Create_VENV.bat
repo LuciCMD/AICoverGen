@@ -27,7 +27,7 @@ if not exist "%~dp0\aicovergen_env\" (
     
     REM install torch with cuda support first
     echo [2/6] Installing PyTorch with CUDA support...
-    pip install --quiet torch==2.0.1+cu118 --extra-index-url https://download.pytorch.org/whl/cu118 >nul 2>&1
+    pip install --quiet torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu118 >nul 2>&1
     echo [########------------] 40%%
     
     REM install fairseq from prebuilt wheel
@@ -42,7 +42,7 @@ if not exist "%~dp0\aicovergen_env\" (
     
     REM install ML dependencies
     echo [5/6] Installing ML dependencies...
-    pip install --quiet numpy==1.23.5 scipy==1.11.1 onnxruntime_gpu faiss-cpu==1.7.3 torchcrepe==0.0.20 >nul 2>&1
+    pip install --quiet numpy==1.23.5 scipy==1.11.1 onnxruntime_gpu==1.18.0 faiss-cpu==1.7.3 torchcrepe==0.0.20 >nul 2>&1
     echo [##################--] 90%%
     
     REM install remaining utilities
