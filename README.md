@@ -59,6 +59,13 @@ git pull
 For colab users, simply click `Runtime` in the top navigation bar of the colab notebook and `Disconnect and delete runtime` in the dropdown menu. 
 Then follow the instructions in the notebook to run the webui.
 
+For Anaconda users, follow the below steps
+
+```
+git pull
+Create_VENV.bat
+```
+
 ## Colab notebook
 
 For those without a powerful enough NVIDIA GPU, you may try AICoverGen out using Google Colab.
