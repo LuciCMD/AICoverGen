@@ -43,6 +43,7 @@ if not exist "%~dp0\aicovergen_env\" (
     REM install ML dependencies
     echo [5/6] Installing ML dependencies...
     pip install --quiet numpy==1.23.5 scipy==1.11.1 onnxruntime_gpu==1.18.0 faiss-cpu==1.7.3 torchcrepe==0.0.20 >nul 2>&1
+    python src/download_models.py
     echo [##################--] 90%%
     
     REM install remaining utilities
