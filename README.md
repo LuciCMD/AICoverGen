@@ -1,7 +1,5 @@
 # AICoverGen
 
-[![Replicate](https://replicate.com/zsxkib/realistic-voice-cloning/badge)](https://replicate.com/zsxkib/realistic-voice-cloning)
-
 An autonomous pipeline to create covers with any RVC v2 trained AI voice from YouTube videos or a local audio file. For developers who may want to add a singing functionality into their AI assistant/chatbot/vtuber, or for people who want to hear their favourite characters sing their favourite song.
 
 Showcase: https://www.youtube.com/watch?v=2qZuE4WM7CM
@@ -11,6 +9,23 @@ Setup Guide: https://www.youtube.com/watch?v=pdlhk4vVHQk
 ![](images/webui_generate.png?raw=true)
 
 WebUI is under constant development and testing, but you can try it out right now on both local and colab!
+
+## Table of Contents
+
+- [Changelog](#changelog)
+- [Setup](#setup)
+    - [Install Git and Python](#install-git-and-python)
+    - [Install ffmpeg and sox](#install-ffmpeg)
+    - [Clone AICoverGen repository](#clone-aicovergen-repository)
+    - [Download required models](#download-required-models)
+- [Usage with WebUI](#usage-with-webui)
+    - [Download RVC models via WebUI](#download-rvc-models-via-webui)
+    - [Upload RVC models via WebUI](#upload-rvc-models-via-webui)
+    - [Running the pipeline via WebUI](#running-the-pipeline-via-webui)
+- [Usage with CLI](#usage-with-cli)
+    - [Manual Download of RVC models](#manual-download-of-rvc-models)
+    - [Running the pipeline via CLI](#running-the-pipeline-via-cli)
+- [Terms of Use](#terms-of-use)
 
 ## Changelog
 
@@ -30,6 +45,7 @@ WebUI is under constant development and testing, but you can try it out right no
 - Pitch detection method control, e.g. rmvpe/mangio-crepe
 - Pitch change for vocals and instrumentals together. Same effect as changing key of song in Karaoke.
 - Audio output format option: wav or mp3.
+- Now has options for using a conda environment for cleaner setup
 
 ## Update AICoverGen to latest version
 
@@ -59,7 +75,7 @@ For those who want to run this locally, follow the setup guide below.
 
 ### Install Git and Python
 
-Follow the instructions [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) to install Git on your computer. Also follow this [guide](https://www.anaconda.com/download/success/) to install Anaconda if you haven't already. Use the Create_VENV.bat to install a VENV of Python 3.9 and all required packages.
+Follow the instructions [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) to install Git on your computer. Also follow this [guide](https://www.anaconda.com/download/success/) to install Anaconda if you haven't already. Use the Create_VENV.bat to install a VENV of Python 3.9 and all required packages. You can also install Python 3.9 alone if you prefer, follow the steps [here](#clone-aicovergen-repository) if you choose to do so.
 
 ### Install ffmpeg
 
@@ -73,6 +89,9 @@ Follow the instructions [here](https://www.tutorialexample.com/a-step-guide-to-i
 
 Download cuDNN 8.9.7 for CUDA 11.x [here](https://developer.nvidia.com/rdp/cudnn-archive), create the required folders or place it in existing folders here "C:\Program Files\NVIDIA\CUDNN\8.9.7.29" and add it to user or system path environment variables as "C:\Program Files\NVIDIA\CUDNN\8.9.7.29\bin" (no quotes)
 
+## Windows Users
+For Windows compatibility, a prebuilt wheel for fairseq is provided in the `prebuilt_whl` folder. This helps avoid common build issues on Windows systems. All you need to do is follow the above steps to install Python 3.9 and all other requirements.
+
 ### Clone AICoverGen repository
 
 Open a command line window and run these commands to clone this entire repository and install the additional dependencies required.
@@ -82,12 +101,15 @@ git clone https://github.com/SociallyIneptWeeb/AICoverGen
 cd AICoverGen
 ```
 
-## Windows Users
-For Windows compatibility, a prebuilt wheel for fairseq is provided in the `prebuilt_whl` folder. This helps avoid common build issues on Windows systems. All you need to do is follow the above steps to install Python 3.9 and all other requirements.
+If using a dedicated installation of Python 3.9 run the below
+
+```
+pip install -r requirements.txt
+```
 
 ### Download required models
 
-Run the following command to download the required MDXNET vocal separation models and hubert base model.
+If you are using a dedicated installation of Python 3.9 run the following command to download the required MDXNET vocal separation models and hubert base model. Otherwise, this can be ignored as this will be done automatically with Create_VENV.bat
 
 ```
 python src/download_models.py
@@ -95,7 +117,7 @@ python src/download_models.py
 
 ## Usage with WebUI
 
-To run the AICoverGen WebUI, run the command below, or use run.bat
+If you are using a dedicated installation of Python 3.9 run the following command. Otherwise, use run.bat
 
 ```
 python src/webui.py
